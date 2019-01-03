@@ -1,0 +1,243 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+
+
+<body>
+</body>
+</html>
+
+
+<head>
+  <style> 
+    td {
+      padding-left: 8px;
+    }
+  </style>
+</head>
+
+
+<body>
+
+<div class="uk-section section-hero .uk-width-1-1"  data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
+    <div class="uk-container uk-container-small">
+        {% if site.index.image %}
+        <p class="hero-image uk-text-center"><img src="{{ site.post_assets | absolute_url }}{{ site.index.image }}" alt="Hero"></p> 
+        {% endif %}
+        <h2 class="uk-heading-hero uk-text-center uk-margin-remove-top uk-margin-remove-bottom " >{{ site.index.title }}</h2>
+        
+         {% if site.index.subtitle %}<p class="subtitle uk-text-lead uk-text-center">{{ site.index.subtitle }}</p>
+            {% endif %}
+</div>
+</div>
+
+<br>
+<br>
+
+<article class="uk-article">
+
+
+<div class="uk-section-muted uk-padding-large">
+<div class="uk-container uk-container-small">
+
+  
+<a class="uk-button uk-button-default" class="uk-align-center" onclick="onlyprint();">PRINT THE SYLLABUS</a>
+
+
+
+<div><h2> Course Info </h2></div>
+
+<table id="index" class="table table-condensed" cellspacing="10">
+{% if site.info.program_title %}
+<tr>
+<td> Program Title </td>
+<td> <b>{{site.info.program_title}}</b> </td>
+</tr>
+{% endif %}
+
+{% if site.info.program_website %}
+<tr>
+<td>Program Website</td>
+<td><b> {{site.info.program_website}} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.course_title %}
+<tr>
+<td>Course Title</td>
+<td><b> {{site.info.course_title}} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.course_number %}
+<tr>
+<td>Course Number</td>
+<td><b> {{site.info.course_number}} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.course_level %}
+<tr>
+<td> Course Level </td>
+<td><b> {{site.info.course_level}} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.course_website %}
+<tr>
+<td>Course Website</td>
+<td><b> {{site.info.course_website}} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.course_start_end_dates %}
+<tr>
+<td> Course Start-End </td>
+<td><b> {{site.info.course_start_end_dates }} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.course_prerequisites %}
+<tr>
+<td>Course Prerequisites</td>
+<td><b> {{site.info.course_prerequisites }} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.class_meets_when %}
+<tr>
+<td>Class Timings</td>
+<td><b> {{site.info.class_meets_when }} </b></td>
+</tr>
+{% endif %}
+
+{% if site.info.class_meets_where %}
+<tr>
+<td>Class Location</td>
+<td><b> {{site.info.class_meets_where }} </b></td>
+</tr>
+{% endif %}
+
+</table>
+
+<br>
+<br>
+
+<div><h2> Course Instructors </h2></div>
+<div>
+{% for item in site.instructor %}
+ <div id="index" style="width: 15%; "><a href="{{item.website_url}}">{{item.name}}</a></div>
+ <div id="index" style="width: 15%; ">{{item.title}}</div>
+ <div id="index" style="width: 5%; ">{{item.phone}}</div>
+ <div id="index" style="width: 5%; "><a href="mailto:{{item.email}}" title="email"><i id="general" class="fa fa-envelope" ></i></a> </div>
+
+{% if item.github_url %}
+ <div id="index" style="width: 5%; "><a href="{{item.github_url}}" title="email"><i id="general" class="fab fa-github" "></i></a> </div>
+{% endif %}
+
+{% if item.twitter_url %}
+ <div id="index" style="width: 5%; "><a href="{{item.twitter_url}}" title="email"><i id="general" class="fab fa-twitter" ></i></a></div>
+{% endif %}
+
+{% if item.scholar_url %}
+ <div id="index" style="width: 5%; "><a href="{{item.scholar_url}}" title="email"><i id="general" class="fa fa-graduation-cap" ></i></a></div>
+{% endif %}
+
+{% if item.linked_in_url %}
+ <div id="index" style="width: 5%; "><a href="{{item.linked_in_url}}" title="email"><i id="general" class="fa fa-linkedin" ></i></a></div>
+{% endif %}
+
+{% endfor %}
+</div>
+
+<br>
+<br>
+
+<div><h2> Office Hours </h2></div>
+<div>
+{% for item in site.instructor %}
+  <div id="index" style="width: 15%; ">{{item.name}}</div>
+  <div id="index" style="width: 25%; ">{{item.office_hours_times}}</div>
+  <div id="index" style="width: 15%; ">{{item.office_hours_location}}</div>
+  <div id="index" style=" "><a class="uk-button uk-button-default uk-button-small" class="uk-align-center" onclick="location.href='{{ item.office_hours_app_url }}'" target="_blank">ONLINE OFFICE HOURS</a></div>
+{% endfor %}
+</div>
+
+<br>
+<br>
+
+<div><h2> Textbooks </h2></div>
+
+<table  id="index" class="table table-condensed" cellspacing="10">
+{% for item in site.textbooks %}
+<tr align="left">
+<td align="left"><button class="uk-button uk-button-link" onclick="location.href='{{ item.link }}'" > <i id="general" class="fas fa-book" ></i> {{ item.title }}</button></td>
+{% if item.authors %}
+<td>{{item.authors}}</td>
+{% endif %}
+{% if item.edition %}
+<td>{{item.edition}}</td>
+{% endif %}
+{% if item.required %}
+<td>Required: </td>
+<td>{{item.required}}</td>
+{% endif %}
+</tr>
+{% endfor %}
+</table>
+
+<br>  
+</div>
+</div>
+<div class="uk-section uk-padding-large">
+<div class="uk-container-small">
+
+{{content}}
+
+<br>
+<br>
+
+</div>
+</div>
+
+</article>
+
+
+</body>
+</html>
+
+
+
+<script>
+  function onlyprint(){
+            var div = document.getElementsByTagName("article")[0];
+            var t = document.getElementsByTagName('');
+            var divC = document.getElementsByTagName("article")[0].cloneNode(true);
+           
+            var secs = divC.getElementsByTagName("section");
+           
+            for(var j=0;j<secs.length-1;j++){
+              var hr = document.createElement("hr");
+             secs[j].appendChild(hr);
+              var h1 = secs[j].getElementsByTagName("h1");
+              (h1[0]).setAttribute();
+              h1[0].appendChild(hr);
+            }
+            divC.setAttribute("display","block");
+            var divContents = "<br>"+divC.innerHTML;
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Course Syllabus</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+  
+</script>
