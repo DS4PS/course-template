@@ -9,13 +9,13 @@ title:              Intro to Data Science
 description:        Website for the MS in Program Eval and Data Analytics Program, ASU
 
 # Site subpath, e.g. /blog
-baseurl:            "/course_website"
+baseurl:            "/course-template"
 
 # Permalink URLs structure, for permalink style options see: https://jekyllrb.com/docs/permalinks/
 permalink:          /:title/
 
 # Site base hostname & protocol, e.g. http://example.com
-url :               "https://hasi96.github.io"
+url :               "https://ds4ps.github.io"
 
 # Site logo, image or text
 brand:
@@ -31,7 +31,7 @@ author:
 github_info:
     username:          hasi96 # Github location of the course
     branch:            master
-    website-repo:      course_website
+    website-repo:      course-template
     course-repo:       Data-Science-Class
 
 index:
@@ -205,5 +205,5 @@ kramdown:
 
 
 
-course_url: "https://hasi96.github.io/Data-Science-Class/"
+course_url: "https://ds4ps.github.io/Data-Science-Class/"
 
