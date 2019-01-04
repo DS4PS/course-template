@@ -6,12 +6,16 @@ title: Schedule
 <!--- 
 Comments go here...
 Allowable asset classes:
-[link_text]{ @reading file_name }
-[link_text]{ @assignment file_name }
-[unit_dates]{ @date }
-
-Each unit must start with three stars
-and include an H1 text element.
+Each section should start with 2 stars - ** [Section name]
+Units under a section should start with 3 stars - *** [Unit Metadata]
+Unit Metadata comprises of:
+@unit - unit date/ ref name
+@title - unit name
+@reading - mentioning this will activate the reading icon for the unit
+@assignment - mentioning this will activate the assignment icon for the unit
+@lecture - mentioning this will activate the lecture icon for the unit
+@foldout - mentioning this will activate the foldout option for text specified inside the unit
+eg - *** {@unit = "15th Nov", @title = "Course Overview", @reading, @assignment}
 -->
 
 
