@@ -254,11 +254,10 @@ disqus: true
                                 var ty = op++;
                                 button.setAttribute("onclick", "expand(" + ty + ");");
                                 var iconf = document.createElement("font");
-
+                                iconf.setAttribute("style", "font-size:2em");
+                                
                                 var icon = document.createElement("i");
                                 icon.className = "fas fa-chevron-circle-down";
-                                iconf.setAttribute("color", "000000");
-                                iconf.setAttribute("style", "font-size:2em");
                                 iconf.appendChild(icon);
                                 center.appendChild(icon);
                                 button.appendChild(center);
@@ -289,7 +288,7 @@ disqus: true
                         //  }
                         ttr.appendChild(ttd);
                     }
-                    var icons = ["fa fa-glasses", "fas fa-star-of-life", "fab fa-first-order-alt"];
+                    var icons = ["fa fa-glasses", "fas fa-comment-alt", "fas fa-star-of-life"];
                     for (var y = 2; y < 6; y++) {
                         var ttd = document.createElement("td");
 
