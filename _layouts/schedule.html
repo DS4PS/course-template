@@ -232,7 +232,7 @@ disqus: true
                                 var icon = document.createElement("i");
                                 icon.className = "fas fa-chevron-circle-down";
                                 iconf.setAttribute("color", "f1f1f1");
-                                iconf.setAttribute("style", "font-size:2em");
+                                iconf.setAttribute("style", "font-size:1.5em");
                                 iconf.appendChild(icon);
                                 //button.appendChild(iconf);
                                 ttd.setAttribute("style", "width:6%;text-align:center;");
@@ -254,7 +254,7 @@ disqus: true
                                 var ty = op++;
                                 button.setAttribute("onclick", "expand(" + ty + ");");
                                 var iconf = document.createElement("font");
-                                iconf.setAttribute("style", "font-size:2em");
+                                // iconf.setAttribute("style", "font-size:1.5em");
                                 
                                 var icon = document.createElement("i");
                                 icon.className = "fas fa-chevron-circle-down";
@@ -295,6 +295,7 @@ disqus: true
                         //if(infodict[y]!="False") {
                         if (infodict[y] == "True") {
                             var iconf = document.createElement("font");
+                            iconf.setAttribute("style", "font-size:1.5em");
                             var icon = document.createElement("i");
                             icon.className = icons[y - 2];
                             iconf.appendChild(icon);
@@ -303,6 +304,7 @@ disqus: true
                             var icon = document.createElement("i");
                             icon.className = icons[y - 2];
                             iconf.setAttribute("color", "f1f1f1");
+                            iconf.setAttribute("style", "font-size:1.5em");
                             iconf.appendChild(icon);
 
                         }
