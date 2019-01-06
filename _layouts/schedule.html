@@ -258,7 +258,6 @@ disqus: true
                                 var icon = document.createElement("i");
                                 icon.className = "fas fa-chevron-circle-down";
                                 iconf.setAttribute("style", "font-size:2em");
-
                                 iconf.appendChild(icon);
                                 center.appendChild(icon);
                                 button.appendChild(center);
@@ -271,6 +270,7 @@ disqus: true
                                 //  button.innerHTML = button.innerHTML + txt.innerHTML;
 
                                 ttd.appendChild(txt);
+                                ttd.appendChild(iconf);
                             }
 
                         }
@@ -288,7 +288,7 @@ disqus: true
                         //  }
                         ttr.appendChild(ttd);
                     }
-                    var icons = ["fa fa-glasses", "fab fa-galactic-republic", "fa fa-first-order-alt"];
+                    var icons = ["fa fa-glasses", "fas fa-star-of-life", "fab fa-first-order-alt"];
                     for (var y = 2; y < 6; y++) {
                         var ttd = document.createElement("td");
 
