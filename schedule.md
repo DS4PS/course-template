@@ -213,9 +213,9 @@ Teetor, P. (2011). R cookbook: Proven recipes for data analysis, statistics, and
 
 
 
-*** {@unit = "10th Jan", @title = "Visualization I", @lecture, @assignment}
+*** {@unit = "10th Jan", @title = "Visualization I", @lecture, @assignment, @foldout}
 
-# Visualization I
+# Discussion Boards
 
 
 [   ]{@reading}
@@ -223,7 +223,7 @@ Teetor, P. (2011). R cookbook: Proven recipes for data analysis, statistics, and
 [   ]{@assignment}
 
 
-# Discussion Boards
+
   
 
 Discussion boards are worth 20% of the final grade. We will be using Yellowdig, accessible from the link below:
