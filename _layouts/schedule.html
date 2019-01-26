@@ -41,15 +41,28 @@ disqus: true
       margin-left: 15px;
     } 
     .fa{
-  position: relative;
-  /* Adjust these values accordingly */
-  top: 5px;
-  left: 5px;
+      position: relative;
+      /* Adjust these values accordingly */
+      top: 5px;
+      left: 5px;
     }
 
     .link{
         color:#641E16;
-        }
+    }
+        
+    .horizontal_dotted_line {
+      display: flex;
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+      padding: 5px;
+    } 
+    .horizontal_dotted_line:after {
+      border-bottom: 1px dotted black;
+      content: '';
+      flex: 1;
+    }    
+     
    </style>
     
 </head>
