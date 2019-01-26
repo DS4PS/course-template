@@ -39,7 +39,7 @@ how to succeed
 
 
 
-*** {@unit = "17th Nov", @title = "Introduction to Data Science", @reading, @assignment, @lecture, @foldout}
+*** {@unit = "17th Nov", @title = "Introduction to Data Science", @reading, @lecture, @foldout}
 
 # Introduction to Data Science 
 
