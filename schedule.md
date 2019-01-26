@@ -11,12 +11,12 @@ New units start with 3 stars:     *** {Unit Metadata}
 *** { @unit = "15th Nov", @title = "Course Overview", @reading, @lecture, @assignment, @foldout }
 -----------------------------end example
 Unit Metadata is comprised of:
-@unit - unit date/ ref name
+@unit - date or number
 @title - unit name
 @reading - turn on reading icon
 @assignment - turn on lecture icon
 @lecture - turn on lecture icon
-@foldout - active unit content
+@foldout - activate unit content (allow foldout)
 -->
 
 
