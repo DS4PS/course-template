@@ -8,7 +8,7 @@ New sections start with 2 stars:  ** Section Title
 New units start with 3 stars:     *** {Unit Metadata}
 -----------------------------start example
 ** Section-I
-*** { @unit="15th Nov", @title="Course Overview", @reading, @lecture, @assignment, @foldout }
+*** { @unit = "15th Nov", @title = "Course Overview", @reading, @lecture, @assignment, @foldout }
 -----------------------------end example
 Unit Metadata is comprised of:
 @unit - unit date/ ref name
@@ -23,7 +23,7 @@ Unit Metadata is comprised of:
 
 ** Section-I
 
-*** { @unit="15th Nov", @title="Course Overview", @reading, @lecture, @assignment }
+*** { @unit = "15th Nov", @title = "Course Overview", @reading, @lecture, @assignment }
 
 # Course Overview 
 
