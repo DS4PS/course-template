@@ -4,25 +4,26 @@ title: Schedule
 ---
  
 <!--- 
-Comments go here...
-Allowable asset classes:
-Each section should start with 2 stars - ** [Section name]
-Units under a section should start with 3 stars - *** [Unit Metadata]
-Unit Metadata comprises of:
+New sections start with 2 stars:  ** Section Title
+New units start with 3 stars:     *** {Unit Metadata}
+-----------------------------start example
+** Section-I
+*** { @unit="15th Nov", @title="Course Overview", @reading, @lecture, @assignment, @foldout }
+-----------------------------end example
+Unit Metadata is comprised of:
 @unit - unit date/ ref name
 @title - unit name
-@reading - mentioning this will activate the reading icon for the unit
-@assignment - mentioning this will activate the assignment icon for the unit
-@lecture - mentioning this will activate the lecture icon for the unit
-@foldout - mentioning this will activate the foldout option for text specified inside the unit
-eg - *** {@unit = "15th Nov", @title = "Course Overview", @reading, @assignment}
+@reading - turn on reading icon
+@assignment - turn on lecture icon
+@lecture - turn on lecture icon
+@foldout - active unit content
 -->
 
 
 
 ** Section-I
 
-*** {@unit = "15th Nov", @title = "Course Overview", @reading, @assignment}
+*** { @unit="15th Nov", @title="Course Overview", @reading, @lecture, @assignment }
 
 # Course Overview 
 
@@ -173,7 +174,7 @@ Teetor, P. (2011). R cookbook: Proven recipes for data analysis, statistics, and
 
 
 
-** Section -II
+** Section-II
 
 
 *** {@unit = "10th Dec", @title = "Expressive Business Rules", @assignment, @foldout}
