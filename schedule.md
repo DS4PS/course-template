@@ -25,9 +25,12 @@ Unit Metadata is comprised of:
 
 *** { @unit = "15th Nov", @title = "Course Overview", @reading, @lecture, @assignment }
 
+
+
+
+
 # Course Overview 
 
- 
 welcome
 
 organization
@@ -37,6 +40,7 @@ organization
 - labs
 
 how to succeed
+
 
 
 
@@ -134,6 +138,8 @@ output: html_document
 --> embed a video <--
 
 ```
+
+
 
 
 *** {@unit = "19th Nov", @title = "Functions and Data Types", @reading, @assignment, @foldout}
