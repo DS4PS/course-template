@@ -127,7 +127,7 @@ disqus: true
             var secheaders = document.getElementsByClassName("section-header");
             var op = 0;
             for (var i1 = 0; i1 < secheaders.length; i1++) {
-
+                    console.log(secheaders[i1].innerHTML);
                 var ttr = document.createElement("tr");
                 var ttd = document.createElement("td");
                 var thr = document.createElement("br");
@@ -405,8 +405,8 @@ disqus: true
             var divContents = "<br>" + divC.innerHTML;
             var printWindow = window.open('', '', 'height=400,width=800');
 
-            printWindow.document.write('<html><head><title>Course Syllabus</title>');
-            printWindow.document.write('</head><body >');
+            printWindow.document.write('<html><head><title>Course Syllabus</title><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"><link rel ="stylesheet" href="{{ "assets/css/custom.css" | relative_url  }}"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" /><link rel="stylesheet" href="https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css"><link rel="stylesheet" href="https://cdn.rawgit.com/wesbos/Font-Awesome-Docker-Icon/master/fontcustom/fontcustom.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">');
+            printWindow.document.write('</head><body class="uk-container">');
             printWindow.document.write(divContents);
             printWindow.document.write('</body></html>');
             printWindow.document.close();
