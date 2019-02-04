@@ -84,7 +84,7 @@ https://www.ted.com/talks/anne_milgram_why_smart_statistics_are_the_key_to_fight
 
 [   ]{@lecture}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0tak8PvXO7w?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 
 
 
