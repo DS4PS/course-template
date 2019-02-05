@@ -1,7 +1,61 @@
----
+--- 
 layout: index
 title: Syllabus
+
+info: 
+ program_title: MS in Program Evaluation and Data Analytics
+ program_website: 
+ course_title: Introduction to Data Science for the Social Sector
+ course_number: CPP 591
+ course_level: Graduate
+ course_website: 
+ course_start_end_dates: Aug 16th - Dec 5th, 2018
+ course_prerequisites: None
+ class_meets_when:  Online; In-Person Review Sessions Wed 6-7pm & Thurs 1-2pm
+ class_meets_where: Online; Review sessions in UCENT 580A (Wed) & 480A (Th)
+
+instructor:
+-  name: Jesse Lecy
+   title: Professor
+   email: jdlecy@asu.edu
+   website_url: http://www.lecy.info/
+   office_hours_times: Flexible, by appointment
+   office_hours_location:  UCENT 517
+   office_hours_app_url:  https://calendly.com/lecy/15min/
+   github_url: https://github.com/lecy
+   twitter_url: 
+   scholar_url: https://scholar.google.com/citations?user=Ir8H4wMAAAAJ&hl=en
+   linked_in_url:
+
+textbooks:
+- title: R Cookbook. Proven recipes
+  authors: Paul Teetor
+  edition: Not Required
+  link: http://www.bagualu.net/wordpress/wp-content/uploads/2015/10/R_Cookbook.pdf
+  required (y/n): n
+- title: R for Data Science
+  authors: Wickham, H., & Grolemund, G.
+  edition: Free Online
+  link: http://r4ds.had.co.nz/
+  required (y/n): n
+- title: The Art of Data Science
+  authors: Peng, R. D., & Matsui, E.
+  edition: Free Online
+  link: https://leanpub.com/artofdatascience
+  required (y/n): n
+- title: Modern Dive, Intro to Stats and Data Sciences via R
+  authors: Chester Ismay & Albert Y. Kim
+  edition: Free Online
+  link: https://moderndive.com/4-tidy.html
+  required (y/n): n  
+- title: Big Book of Dashboards
+  authors: Smith, Smith, and Johnson
+  edition: Not Required
+  link: https://www.amazon.com/Big-Book-Dashboards-Visualizing-Real-World/dp/1119282713/
+  required (y/n): n
+
 --- 
+
 
 
 # I.  Course Description, Course Goal and Course Learning Objectives: 	
