@@ -19,6 +19,14 @@ layout: default
     td {
       padding-left: 8px;
     }
+    .fa{
+      /* Adjust these values accordingly */
+      style="height: 27px"
+      padding-right: 8px;
+    }
+    .button{
+        padding-right: 8px;
+    }
   </style>
 </head>
 
@@ -40,6 +48,7 @@ layout: default
 <br>
 <br>
 
+
 <article class="uk-article">
 
 
@@ -50,134 +59,198 @@ layout: default
 <a class="uk-button uk-button-default" class="uk-align-center" onclick="onlyprint();">PRINT THE SYLLABUS</a>
 
 
+<h2></a> Course Info </h2> 
 
-<div><h2> Course Info </h2></div>
-
+  
 <table id="index" class="table table-condensed" cellspacing="10">
-{% if site.info.program_title %}
+<thead>
 <tr>
-<td> Program Title </td>
-<td> <b>{{site.info.program_title}}</b> </td>
+<th><span></span></th>
+<th><span></span></th>
+</tr>
+</thead>
+
+<tbody>
+
+{% if page.info.program_title %}
+<tr>
+<td>Program Title </td>
+  <td> <b>{{page.info.program_title}}</b> </td>
 </tr>
 {% endif %}
 
-{% if site.info.program_website %}
+{% if page.info.program_website %}
 <tr>
-<td>Program Website</td>
-<td><b> {{site.info.program_website}} </b></td>
+<td>Program Webpage</td>
+<td><b> {{page.info.program_website}} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.course_title %}
+{% if page.info.course_title %}
 <tr>
 <td>Course Title</td>
-<td><b> {{site.info.course_title}} </b></td>
+<td><b> {{page.info.course_title}} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.course_number %}
+{% if page.info.course_number %}
 <tr>
 <td>Course Number</td>
-<td><b> {{site.info.course_number}} </b></td>
+<td><b> {{page.info.course_number}} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.course_level %}
+{% if page.info.course_level %}
 <tr>
 <td> Course Level </td>
-<td><b> {{site.info.course_level}} </b></td>
+<td><b> {{page.info.course_level}} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.course_website %}
+{% if page.info.course_webpage %}
 <tr>
-<td>Course Website</td>
-<td><b> {{site.info.course_website}} </b></td>
+<td>Course Webpage</td>
+<td><b> {{page.info.course_webpage}} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.course_start_end_dates %}
+{% if page.info.course_start_end_dates %}
 <tr>
 <td> Course Start-End </td>
-<td><b> {{site.info.course_start_end_dates }} </b></td>
+<td><b> {{page.info.course_start_end_dates }} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.course_prerequisites %}
+{% if page.info.course_prerequipages %}
 <tr>
-<td>Course Prerequisites</td>
-<td><b> {{site.info.course_prerequisites }} </b></td>
+<td>Course Prerequipages</td>
+<td><b> {{page.info.course_prerequipages }} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.class_meets_when %}
+{% if page.info.class_meets_when %}
 <tr>
 <td>Class Timings</td>
-<td><b> {{site.info.class_meets_when }} </b></td>
+<td><b> {{page.info.class_meets_when }} </b></td>
 </tr>
 {% endif %}
 
-{% if site.info.class_meets_where %}
+{% if page.info.class_meets_where %}
 <tr>
 <td>Class Location</td>
-<td><b> {{site.info.class_meets_where }} </b></td>
+<td><b> {{page.info.class_meets_where }} </b></td>
 </tr>
 {% endif %}
 
+</tbody>
 </table>
 
 <br>
-<br>
 
-<div><h2> Course Instructors </h2></div>
-<div>
-{% for item in site.instructor %}
- <div id="index" style="width: 15%; "><a href="{{item.website_url}}">{{item.name}}</a></div>
- <div id="index" style="width: 15%; ">{{item.title}}</div>
- <div id="index" style="width: 5%; ">{{item.phone}}</div>
- <div id="index" style="width: 5%; "><a href="mailto:{{item.email}}" title="email"><i id="general" class="fa fa-envelope" ></i></a> </div>
+
+
+
+<h2> Course Instructors </h2>
+
+<table id="index" class="table table-condensed" cellspacing="10">
+<thead>
+<tr>
+<th><span></span></th>
+<th><span></span></th>
+</tr>
+</thead>
+
+<tbody>
+
+
+{% for item in page.instructor %}
+
+<tr>
+<td><a href="{{item.webpage_url}}">{{item.name}}</a></td>
+<td>{{item.title}}</td>
+<td>{{item.phone}}</td>
+<td> <a href="mailto:{{item.email}}" title="email"><i id="general" class="fa fa-envelope fa-2x" ></i></a> </td>
 
 {% if item.github_url %}
- <div id="index" style="width: 5%; "><a href="{{item.github_url}}" title="email"><i id="general" class="fab fa-github" "></i></a> </div>
+<td> <a href="{{item.github_url}}" title="email"><i id="general" class="fab fa-github fa-2x" "></i></a> </td>
 {% endif %}
 
 {% if item.twitter_url %}
- <div id="index" style="width: 5%; "><a href="{{item.twitter_url}}" title="email"><i id="general" class="fab fa-twitter" ></i></a></div>
+<td>
+ <a href="{{item.twitter_url}}" title="email"><i id="general" class="fab fa-twitter fa-2x"></i></a> 
+</td>
 {% endif %}
 
 {% if item.scholar_url %}
- <div id="index" style="width: 5%; "><a href="{{item.scholar_url}}" title="email"><i id="general" class="fa fa-graduation-cap" ></i></a></div>
+<td>
+ <a href="{{item.scholar_url}}" title="email"><i id="general" class="fa fa-graduation-cap fa-2x" ></i></a> 
+</td>
 {% endif %}
+
 
 {% if item.linked_in_url %}
- <div id="index" style="width: 5%; "><a href="{{item.linked_in_url}}" title="email"><i id="general" class="fa fa-linkedin" ></i></a></div>
+<td>
+ <a href="{{item.linked_in_url}}" title="email"><i id="general" class="fa fa-linkedin" ></i></a> 
+</td>
 {% endif %}
+</tr>
 
 {% endfor %}
-</div>
+
+</tbody>
+</table>
 
 <br>
-<br>
 
-<div><h2> Office Hours </h2></div>
-<div>
-{% for item in site.instructor %}
-  <div id="index" style="width: 15%; ">{{item.name}}</div>
-  <div id="index" style="width: 25%; ">{{item.office_hours_times}}</div>
-  <div id="index" style="width: 15%; ">{{item.office_hours_location}}</div>
-  <div id="index" style=" "><a class="uk-button uk-button-default uk-button-small" class="uk-align-center" onclick="location.href='{{ item.office_hours_app_url }}'" target="_blank">ONLINE OFFICE HOURS</a></div>
+
+
+
+<h2> Office Hours </h2>
+
+<table id="index" class="table table-condensed" cellspacing="10">
+<thead>
+<tr>
+<th><span></span></th>
+<th><span></span></th>
+</tr>
+</thead>
+
+<tbody>
+{% for item in page.instructor %}
+<tr>
+<td>{{item.name}}</td>
+<td>{{item.office_hours_times}}</td>
+<td>{{item.office_hours_location}}</td>
+<td>
+  <a class="uk-button uk-button-default uk-button-small" class="uk-align-center" onclick="location.href='{{ item.office_hours_app_url }}'" target="_blank">ONLINE OFFICE HOURS</a>
+  </td>
+<td>
+</td>
+</tr>
 {% endfor %}
-</div>
+</tbody>
+</table>
 
 <br>
-<br>
 
-<div><h2> Textbooks </h2></div>
+
+
+
+<h2> Textbooks </h2>
 
 <table  id="index" class="table table-condensed" cellspacing="10">
-{% for item in site.textbooks %}
+<thead>
+<tr>
+<th><span></span></th>
+<th><span></span></th>
+</tr>
+</thead>
+
+<tbody>
+{% for item in page.textbooks %}
 <tr align="left">
-<td align="left"><button class="uk-button uk-button-link" onclick="location.href='{{ item.link }}'" > <i id="general" class="fas fa-book" ></i> {{ item.title }}</button></td>
+<td align="left"><a onclick="location.href='{{ item.link }}'"> <i id="general" class="fa fa-book fa-2x"></i></button></td>
+<td align="left"><button class="uk-button uk-button-small" onclick="location.href='{{ item.link }}'">{{ item.title }}</button></td>
 {% if item.authors %}
 <td>{{item.authors}}</td>
 {% endif %}
@@ -190,11 +263,19 @@ layout: default
 {% endif %}
 </tr>
 {% endfor %}
+</tbody>
 </table>
 
-<br>  
+<br>
+
+
+  
 </div>
 </div>
+
+
+
+
 <div class="uk-section uk-padding-large">
 <div class="uk-container-small">
 
@@ -219,7 +300,7 @@ layout: default
             var div = document.getElementsByTagName("article")[0];
             var t = document.getElementsByTagName('');
             var divC = document.getElementsByTagName("article")[0].cloneNode(true);
-           
+
             var secs = divC.getElementsByTagName("section");
            
             for(var j=0;j<secs.length-1;j++){
