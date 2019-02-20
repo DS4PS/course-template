@@ -29,10 +29,10 @@ author:
 
 
 github_info:
-    username:          ds4ps # Github location of the course
-    branch:            master
-    website-repo:      course-template
-    course-repo:       Data-Science-Class
+    username:          ds4ps                # Github location of the course
+    branch:            master               # branch where github page is hosted - see settings
+    website-repo:      course-template      # name of this current repo, contains course site files
+    course-repo:       Data-Science-Class   # location of course content files like data, textbook, labs, etc.
 
 index:
     title: Intro to Data Science for the Social Sector
