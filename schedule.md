@@ -44,7 +44,7 @@ how to succeed
 
 
 
-*** {@unit = "17th Nov", @title = "Introduction to Data Science", @reading, @lecture, @foldout}
+*** {@unit = "17th Nov", @title = "Introduction to Data Science", @reading, @lecture, @foldout,@eval}
 
 # Introduction to Data Science 
 
@@ -183,7 +183,7 @@ Teetor, P. (2011). R cookbook: Proven recipes for data analysis, statistics, and
 ** Section-II
 
 
-*** {@unit = "10th Dec", @title = "Expressive Business Rules", @assignment, @foldout}
+*** {@unit = "10th Dec", @title = "Expressive Business Rules", @assignment, @foldout, @eval = "express"}
 
 # Expressive Business Rules
 
@@ -220,7 +220,7 @@ Teetor, P. (2011). R cookbook: Proven recipes for data analysis, statistics, and
 
 
 
-*** {@unit = "10th Jan", @title = "Visualization I", @lecture, @assignment, @foldout}
+*** {@unit = "10th Jan", @title = "Visualization I", @lecture, @assignment, @foldout,@eval}
 
 # Discussion Boards
 

@@ -1,0 +1,307 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="{{ "/css/post.css" | prepend: site.baseurl }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="../assets/js/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="../assets/js/jquery.rateyo.css" />
+    <script src="../assets/js/jquery.rateyo.min.js"></script>
+    <script src="../assets/js/jquery.rateyo.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+
+<style>
+.uk-card-body{
+  padding:0px;
+}
+        .rate{
+    width: 290px;
+   }
+textarea{  
+  /* box-sizing: padding-box; */
+  overflow:hidden;
+  /* demo only: */
+  padding:10px;
+  width:250px;
+  font-size:14px;
+  margin:10px auto;
+  display:block;
+  border-radius:10px;
+  border:6px solid #556677;
+}
+
+.rating2 {
+    float:left;
+}
+.rating {
+    float:left;
+}
+
+ /*:not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:154%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+.rating2:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating2:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:154%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating2 > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2:not(:checked) > label:hover,
+.rating2:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2 > input:checked + label:hover,
+.rating2 > input:checked + label:hover ~ label,
+.rating2 > input:checked ~ label:hover,
+.rating2 > input:checked ~ label:hover ~ label,
+.rating2 > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2 > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+        .collapsible {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: white;
+    } 
+    
+
+    td {
+      text-align: center;
+    }
+    .child {
+      display:none;
+    }
+    .button{
+        width:3%;
+        height:3%;
+
+        text-align: center;
+    }
+
+    .table{
+      background-color: white;
+      margin-left: 15px;
+    } 
+    .fa{
+      position: relative;
+      /* Adjust these values accordingly */
+      top: 5px;
+      left: 5px;
+    }
+
+    .link{
+        color:#641E16;
+    }
+        
+    .horizontal_dotted_line {
+      display: flex;
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+      padding: 5px;
+    } 
+    .horizontal_dotted_line:after {
+      border-bottom: 1px dotted black;
+      content: '';
+      flex: 1;
+    }    
+   
+     
+   </style>
+    <script>
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAFg3WYkwBMHe_p6NfD-R-Zw5TaRcPG_ls",
+        authDomain: "apt-sentinel-164409.firebaseapp.com",
+        databaseURL: "https://apt-sentinel-164409.firebaseio.com",
+        projectId: "apt-sentinel-164409",
+        storageBucket: "apt-sentinel-164409.appspot.com",
+        messagingSenderId: "1026584090135"
+    };
+    var link = window.location.href.split("?")[1].split("=")[1];
+    firebase.initializeApp(config);
+     function saveToFirebase(section) {
+
+        //r rate = {
+        // console.log($(section).val());
+        // var inps = $("input#Expressive Business Rules").val();
+
+        // console.log(inps);
+        var form = document.getElementById(section);
+        var com = form.comment.value;
+
+        var newsec1 = "rateYo1" + section;
+        var newsec2 = "rateYo2" + section;
+        //alert(document.getElementById(newsec1));
+        // var $rateyo1 = $(newsec1).rateYo();
+
+        // var $rateyo2 = $(newsec2).rateYo();
+        var rating1 = document.getElementById(newsec1).getAttribute("foo");
+        // var rating1 = form.rateYo1.value;
+
+        var rating2 = document.getElementById(newsec2).getAttribute("foo");
+
+        // var rat = $("comment").val();
+
+        // //     rating: rating
+        // }
+        // Get a database reference to our blog
+        var db = firebase.database();
+        var ref = db.ref("ratings/" + section);
+        // console.log(ref);
+
+        // console.log(section);
+        ref.once("value", function(snapshot) {
+
+            var newrating1 = +snapshot.val().rating1 + +rating1;
+            var newrating2 = +snapshot.val().rating2 + +rating2;
+            var newcomment = snapshot.val().comment + ", " + com;
+            var num = +snapshot.val().number + +1;
+            ref.update({
+
+                rating1: newrating1,
+                rating2: newrating2,
+                comment: newcomment,
+                number: num
+            })
+
+
+        }, function(errorObject) {
+
+        });
+    }
+    window.onload = function(){
+      
+
+    link = link.split("-").join(" ");
+   
+      var htmlstring = " <div class = \"rate\"> <h1>" + link + "</h1><form id = \"" + link + "\" onsubmit = saveToFirebase(this.id)>  <textarea rows = \"3\" id = \"comment\" placeholder=\"Please enter any comments\"></textarea><div class = \"rateYo\" id=\"rateYo1" + link + "\"></div> <div class = \"rateYo\" id=\"rateYo2" + link + "\"></div> <button type = \"submit\" form = \"" + link + "\" value = \"Submit\"  style=\"height: 50px;width:100px;\">Submit</button></form></div>";
+      var div = document.getElementById("ratebox");
+      div.innerHTML = div.innerHTML +htmlstring;
+       $(".rateYo").rateYo({
+                    rating: 3.6,
+                    onSet: function(rating, rateYoInstance) {
+                        this.setAttribute("foo", rating);
+                        //alert("Rating1 is set to: " + rating);
+                    }
+
+                }); 
+        var db = firebase.database();
+        var ref = db.ref("ratings/"+link);
+        console.log(ref);
+// <article style="min-height:300px;">
+//          <div style = "float:left;width:85%">
+//             <h4>{{ post.title }}</h4>
+//           <div class = "uk-card-body">
+//           </div>
+//       </div>  
+//       </article> 
+        ref.once("value", function(snapshot) {
+            console.log(snapshot.val().comment);
+            var d = document.getElementById("database");
+            var comments = snapshot.val().comment.split(",");
+           for(var c in comments){
+            if(comments[c].trim().length>0){
+            var divbody = document.createElement("div");
+            divbody.setAttribute("class","uk-card-body");
+            var h3 = document.createElement("h3");
+            h3.innerHTML = comments[c];
+            divbody.appendChild(h3);
+            d.appendChild(divbody);
+          }
+           }
+          });
+    }
+</script>
+
+
+<body>
+  <div id= "ratebox">
+    <h1></h1>
+  </div>
+  <div id = "database"></div>
+  <br>
+  <br>
+  
+</body>

@@ -8,11 +8,141 @@ disqus: true
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
     <link rel="icon" sizes="76x76" href="../img/favicon.png">
     <link rel="icon" type="image/png" href="../img/favicon.png">
+      
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/my_js.js"></script>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="../assets/js/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="../assets/js/jquery.rateyo.css" />
+    <script src="../assets/js/jquery.rateyo.min.js"></script>
+    <script src="../assets/js/jquery.rateyo.js"></script>
     <style>
+        .rate{
+    height:300px;
+    width: 290px;
+   }
+textarea{  
+  /* box-sizing: padding-box; */
+  overflow:hidden;
+  /* demo only: */
+  padding:10px;
+  width:250px;
+  font-size:14px;
+  margin:10px auto;
+  display:block;
+  border-radius:10px;
+  border:6px solid #556677;
+}
+
+.rating2 {
+    float:left;
+}
+.rating {
+    float:left;
+}
+
+ /*:not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:154%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+.rating2:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating2:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:154%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating2 > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2:not(:checked) > label:hover,
+.rating2:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2 > input:checked + label:hover,
+.rating2 > input:checked + label:hover ~ label,
+.rating2 > input:checked ~ label:hover,
+.rating2 > input:checked ~ label:hover ~ label,
+.rating2 > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating2 > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
         .collapsible {
       cursor: pointer;
       border: none;
@@ -60,14 +190,10 @@ disqus: true
       content: '';
       flex: 1;
     }    
+   
      
    </style>
-    
 </head>
-
-
-
-
 <div>
 
     <body class="page-responsive">
@@ -78,25 +204,203 @@ disqus: true
                 <button onclick="print();" class="uk-button uk-button-default" style="margin-left: 15px"> </i>PRINT ALL UNITS</button>
                 <!-- <i class="fas fa-external-link-alt" style="color: rgb(140,29,64);"> -->
                 <br>
-
-                <table  style="width:100%; margin-right:auto; padding-left:5px;">
-                    <!--    <tr>
-                        <td> <br> </td>
-                    </tr>
-                    <tr>
-                        <th class="hide" style="width:40%;" colspan="2" );>Section</th>
-                        <th style="width:10%;text-align:center;">Reading</th>
-                        <th style="width:10%;text-align:center;">Lecture</th>
-                        <th style="width:10%;text-align:center;">Assignment</th>
-                          <th style="width:8%;text-align:center;">Project/Exam</th> 
-                    </tr>
-                    </thead> -->
+                <table style="width:100%; margin-right:auto; padding-left:5px;">
                     <tbody id="tablebody">
                     </tbody>
                 </table>
             </div>
         </div>
     </body>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAFg3WYkwBMHe_p6NfD-R-Zw5TaRcPG_ls",
+        authDomain: "apt-sentinel-164409.firebaseapp.com",
+        databaseURL: "https://apt-sentinel-164409.firebaseio.com",
+        projectId: "apt-sentinel-164409",
+        storageBucket: "apt-sentinel-164409.appspot.com",
+        messagingSenderId: "1026584090135"
+    };
+    firebase.initializeApp(config);
+
+    function saveToFirebase(section) {
+
+        //r rate = {
+        // console.log($(section).val());
+        // var inps = $("input#Expressive Business Rules").val();
+
+        // console.log(inps);
+        var form = document.getElementById(section);
+        var com = form.comment.value;
+
+        var newsec1 = "rateYo1" + section;
+        var newsec2 = "rateYo2" + section;
+        //alert(document.getElementById(newsec1));
+        // var $rateyo1 = $(newsec1).rateYo();
+
+        // var $rateyo2 = $(newsec2).rateYo();
+        var rating1 = document.getElementById(newsec1).getAttribute("foo");
+        // var rating1 = form.rateYo1.value;
+
+        var rating2 = document.getElementById(newsec2).getAttribute("foo");
+
+        // var rat = $("comment").val();
+
+        // //     rating: rating
+        // }
+        // Get a database reference to our blog
+        var db = firebase.database();
+        var ref = db.ref("ratings/" + section);
+        // console.log(ref);
+
+        // console.log(section);
+        ref.once("value", function(snapshot) {
+
+            var newrating1 = +snapshot.val().rating1 + +rating1;
+            var newrating2 = +snapshot.val().rating2 + +rating2;
+            var newcomment = snapshot.val().comment + ", " + com;
+            var num = +snapshot.val().number + +1;
+            ref.update({
+
+                rating1: newrating1,
+                rating2: newrating2,
+                comment: newcomment,
+                number: num
+            })
+
+
+        }, function(errorObject) {
+
+        });
+    }
+
+    function generatetable(key) {
+        if (key) {
+
+            var db = firebase.database();
+            var ratingObject = {
+                rating1: 0,
+                rating2: 0,
+                comment: "",
+                number: 0
+
+            };
+
+            db.ref('ratings/' + key).once("value", function(snapshot) {
+                if (snapshot.val() == null)
+
+                    db.ref('ratings/' + key).set(ratingObject)
+                    .then(function(snapshot) {
+                        // some success method
+                    }, function(error) {
+                        // console.log('error' + error);
+                        // some error method
+                    });
+            });
+
+
+        }
+    }
+
+    function seteval(section,article) {
+        //var sec = document.getElementById(section);\
+        if(article){
+        console.log(article);
+        var str = section.split(' ').join('-');
+        str = str.toLowerCase();
+        console.log(str);
+        var temarticle = article;
+        if(article.indexOf(" ")>0){
+         temarticle = article.split(' ').join('-');
+        }
+        var hd = document.getElementById(str);
+        var evdiv = document.createElement("div");
+        var divl = document.createElement("div");
+        divl.setAttribute("style", "float:left;");
+        var divr1 = document.createElement("div");
+        divr1.setAttribute("class", "rateshow");
+        divr1.setAttribute("id", "rateshow1" + temarticle);
+        var divr2 = document.createElement("div");
+        divr2.setAttribute("class", "rateshow");
+        divr2.setAttribute("id", "rateshow2" + temarticle);
+        divl.appendChild(divr1);
+        divl.appendChild(divr2);
+        var divr = document.createElement("div");
+        divr.setAttribute("style", "font-size:20px;");
+        var a = document.createElement("a");
+         // $(".rateshow").rateYo(); 
+        a.setAttribute("href", "{{ site.baseurl }}/sectionevaluation/index.html?id=" + temarticle);
+        a.setAttribute("target", "_blank");
+        a.innerHTML = "Comments";
+        divr.appendChild(a);
+        evdiv.appendChild(divl);
+        evdiv.appendChild(divr);
+        hd.appendChild(evdiv);
+        console.log(hd);
+    }
+        // <a href="https://www.w3schools.com/html/" target="_blank">Visit our HTML tutorial!</a> 
+    }
+
+    function updateeval() {
+       // console.log("hi");
+        // $(".rateshow").rateYo(); 
+        var db = firebase.database();
+        var ref = db.ref("ratings/");
+        console.log(ref);
+
+        ref.once("value", function(snapshot) {
+            console.log(snapshot.val());
+            for (var key in snapshot.val()){
+            var rating1 = +snapshot.val()[key].rating1;
+            var rating2 = +snapshot.val()[key].rating2;
+            var comments = snapshot.val()[key].comment;
+            var article = key;
+            var num = +snapshot.val()[key].number;
+
+            rating1 = (rating1 / num);
+            rating2 = (rating2 / num);
+            //var divr = document.getElementById("rateshow1"+section);
+            // divr.setAttribute("foo",)
+            var temarticle = article;
+             if(article.indexOf(" ")>0){
+             temarticle = article.split(' ').join('-');
+        }
+            var newsec1 = "#rateshow1" + temarticle;
+           
+            if(rating1>5 ){
+                rating1 = 5;
+            }
+            if(rating1<0){
+                rating1 = 0;
+            }
+            if(rating2>5){
+                rating2 = 5;
+            }
+            if(rating2<0){
+                rating2 = 0;
+            }
+            $(newsec1).rateYo({
+                rating: rating1,
+                starWidth: "20px"
+            });
+            var newsec2 = "#rateshow2" + temarticle;
+            console.log("yass");
+            $(newsec2).rateYo({
+                rating: rating2,
+                starWidth: "20px"
+            });
+            console.log("rateshow1" + temarticle);
+            console.log(rating1);
+        }
+
+
+        }, function(errorObject) {
+
+        });
+    }
+   
+    </script>
     <script>
     // Table of contents scroll to
     UIkit.scroll('#markdown-toc a', {
@@ -107,8 +411,6 @@ disqus: true
     <script>
     //var res = "<p>** meif</p>".match(/\<p\>\*\*(.*)\<\/p\>/ig);
     //alert(res);
-
-   
     </script>
     <section>
         <div id="divCheckbox" class="{{ site.url }}{{site.github_info.course-repo}}" style="display: none;">{{ content }}</div>
@@ -121,252 +423,367 @@ disqus: true
             if (window.location.hostname != a.hostname) { return true; } else { return false; }
         }
         window.onload = function myFunction() {
-            var tablee = document.getElementById("tablebody");
-            var ele = document.getElementById("divCheckbox");
 
-            var secheaders = document.getElementsByClassName("section-header");
-            var op = 0;
-            for (var i1 = 0; i1 < secheaders.length; i1++) {
-                    console.log(secheaders[i1].innerHTML);
-                var ttr = document.createElement("tr");
-                var ttd = document.createElement("td");
-                var thr = document.createElement("br");
-                ttd.setAttribute("colspan", 5);
-                ttd.appendChild(thr);
-                ttr.appendChild(ttd);
-                tablee.appendChild(ttr);
-                //  for(var y=0; y<4; y++) {
-                var ttr = document.createElement("tr");
-                var ttd = document.createElement("td");
-                var txt = document.createTextNode("");
-                ttd.appendChild(txt);
-                ttr.appendChild(ttd);
+                var tablee = document.getElementById("tablebody");
+                var ele = document.getElementById("divCheckbox");
 
-
-                var ttd = document.createElement("td");
-                var txt = document.createTextNode(secheaders[i1].getAttribute("id"));
-                ttd.setAttribute("style", "font-weight:bold;text-align:left;text-transform:uppercase;font-size:20px;");
-                ttd.setAttribute("colspan", 2);
-                ttd.appendChild(txt);
-
-
-
-                ttr.appendChild(ttd);
-                // }
-                ttr.appendChild(ttd);
-                var ttd = document.createElement("td");
-                var txt = document.createTextNode("READING");
-
-                ttd.appendChild(txt);
-
-                // }
-                ttr.appendChild(ttd);
-                var ttd = document.createElement("td");
-                var txt = document.createTextNode("LECTURE");
-
-                ttd.appendChild(txt);
-
-
-                // }
-                ttr.appendChild(ttd);
-                var ttd = document.createElement("td");
-                var txt = document.createTextNode("ASSIGNMENT");
-
-                ttd.appendChild(txt);
-
-                // }
-                ttr.appendChild(ttd);
-                tablee.appendChild(ttr);
-                var ttr = document.createElement("tr");
-                var ttd = document.createElement("td");
-                var txt = document.createTextNode("");
-                ttd.appendChild(txt);
-                ttr.appendChild(ttd);
-                var ttd = document.createElement("td");
-                var thr = document.createElement("hr");
-                ttd.setAttribute("colspan", 5);
-                ttd.appendChild(thr);
-                ttr.appendChild(ttd);
-                tablee.appendChild(ttr);
-                //}
-
-                var sections = secheaders[i1].getElementsByClassName("unit-header");
-
-                console.log("sh" + secheaders.length);
-                for (var i2 = 0; i2 < sections.length; i2++) {
-                    //sections[i2].setAttribute("class", "unit-header child");
-
+                var secheaders = document.getElementsByClassName("section-header");
+                var op = 0;
+                var ol = 0;
+                for (var i1 = 0; i1 < secheaders.length; i1++) {
+                    //   console.log(secheaders[i1].innerHTML);
                     var ttr = document.createElement("tr");
+                    var ttd = document.createElement("td");
+                    var thr = document.createElement("br");
+                    ttd.setAttribute("colspan", 5);
+                    ttd.appendChild(thr);
+                    ttr.appendChild(ttd);
+                    tablee.appendChild(ttr);
+                    //  for(var y=0; y<4; y++) {
+                    var ttr = document.createElement("tr");
+                    var ttd = document.createElement("td");
+                    var txt = document.createTextNode("");
+                    ttd.appendChild(txt);
+                    ttr.appendChild(ttd);
 
 
-                    var iconstring = sections[i2].getAttribute("id");
-                    var iconlist = iconstring.split(",");
+                    var ttd = document.createElement("td");
+                    var txt = document.createTextNode(secheaders[i1].getAttribute("id"));
+                    ttd.setAttribute("style", "font-weight:bold;text-align:left;text-transform:uppercase;font-size:20px;");
+                    ttd.setAttribute("colspan", 2);
+                    ttd.appendChild(txt);
 
-                    var regexlist = ["/@unit(.*)=(.*)“(.*)”,(.*)@/ig", "/@title(.*)=(.*)“(.*)”,\@/ig", "/@reading(.*)=(.*)“(.*)”,\@/ig", "/@lecture(.*)=(.*)“(.*)”,\@/ig", "/@assignment(.*)=(.*)“(.*)”,\@/ig", "/@foldout(.*)=(.*)“(.*)”,\@/ig"]
-                    var regex = [/@unit/ig, /@title/ig, /@reading/ig, /@lecture/ig, /@assignment/ig, /@foldout/ig]
-                    var infodict = {};
-                    var resdict = [];
-                    for (var ch = 0; ch < 6; ch++) {
-                        resdict[ch] = iconstring.match(regex[ch]);
-                        if (resdict[ch] != null) {
-                            var res = "\"" + iconlist[ch] + "\"".match(regexlist[ch]);
-                            if (res != null) {
-                                var mySubString = res.substring(
-                                    res.indexOf("\= ") + 2,
-                                    res.lastIndexOf("\”") + 1
-                                );
-                                if (mySubString.length > 1) {
-                                    infodict[ch] = mySubString.replace("\“", "").replace("\”", "");
+
+
+                    ttr.appendChild(ttd);
+                    // }
+                    ttr.appendChild(ttd);
+                    var ttd = document.createElement("td");
+                    var txt = document.createTextNode("READING");
+
+                    ttd.appendChild(txt);
+
+                    // }
+                    ttr.appendChild(ttd);
+                    var ttd = document.createElement("td");
+                    var txt = document.createTextNode("LECTURE");
+
+                    ttd.appendChild(txt);
+
+
+                    // }
+                    ttr.appendChild(ttd);
+                    var ttd = document.createElement("td");
+                    var txt = document.createTextNode("ASSIGNMENT");
+
+                    ttd.appendChild(txt);
+
+                    // }
+                    ttr.appendChild(ttd);
+                    tablee.appendChild(ttr);
+                    var ttr = document.createElement("tr");
+                    var ttd = document.createElement("td");
+                    var txt = document.createTextNode("");
+                    ttd.appendChild(txt);
+                    ttr.appendChild(ttd);
+                    var ttd = document.createElement("td");
+                    var thr = document.createElement("hr");
+                    ttd.setAttribute("colspan", 5);
+                    ttd.appendChild(thr);
+                    ttr.appendChild(ttd);
+                    tablee.appendChild(ttr);
+                    //}
+                    var emojis = ['😠', '😦', '😑', '😀', '😍'];
+                    var sections = secheaders[i1].getElementsByClassName("unit-header");
+
+                    // console.log("sh" + secheaders.length);
+                    for (var i2 = 0; i2 < sections.length; i2++) {
+                        //sections[i2].setAttribute("class", "unit-header child");
+
+                        var ttr = document.createElement("tr");
+                        ttr.setAttribute("class", "rowtext");
+
+                        var iconstring = sections[i2].getAttribute("id");
+                        var iconlist = iconstring.split(",");
+
+                        var regexlist = [/@unit(\s*)=(\s*)“(.*)”(\s*),(\s*)/ig, /@title(\s*)=(\s*)“(.*)”(\s*),(\s*)/ig, /@reading(\s*),(\s*)/ig, /@lecture(\s*),(\s*)/ig, /@assignment(\s*),(\s*)/ig, /@foldout(\s*),(\s*)/ig, /@eval(\s*)/ig]
+                        var regex = [/@unit/ig, /@title/ig, /@reading/ig, /@lecture/ig, /@assignment/ig, /@foldout/ig, /@eval/ig]
+                        var infodict = {};
+                        var resdict = [];
+
+                        for (var ch = 0; ch < 7; ch++) {
+                            resdict[ch] = iconstring.match(regex[ch]);
+                            // console.log(resdict[ch]);
+                            if (resdict[ch] != null) {
+                                //   console.log("yas");
+                                for (var ch2 = 0; ch2 < iconlist.length; ch2++) {
+                                    var sub = iconlist[ch2] + ",";
+
+                                    var res = sub.match(regexlist[ch]);
+                                    //console.log(res);
+                                    if (res != null) {
+                                        if (ch == 6) {
+                                            if (sub.indexOf("\= ") > 0) {
+                                                var mySubString = sub.substring(
+                                                    sub.indexOf("\= ") + 2,
+                                                    sub.lastIndexOf("\”") + 1
+                                                );
+                                            } else {
+                                                var mySubString = "True";
+                                            }
+                                        } else {
+                                            var mySubString = res[0].substring(
+                                                res[0].indexOf("\= ") + 2,
+                                                res[0].lastIndexOf("\”") + 1
+                                            );
+                                        }
+
+
+                                        if (mySubString.length > 1) {
+                                            infodict[ch] = mySubString.replace("\“", "").replace("\”", "");
+                                        } else {
+                                            infodict[ch] = "True";
+                                        }
+
+                                    }
+                                }
+                            } else if (resdict[ch] == null) {
+                                infodict[ch] = "False";
+                            }
+                        }
+                        if (infodict[6]) {
+                            if (infodict[6] != "False") {
+                                if (infodict[6] == "True") {
+                                    generatetable(infodict[1]);
+                                    infodict[6] = infodict[1];
                                 } else {
-                                    infodict[ch] = "True";
+                                    generatetable(infodict[6]);
+                                }
+                            }
+                        } else {
+                            infodict[6] = "False";
+                        }
+
+                        // if(infodict[6]){
+                        // var mySubString = "";
+                        // var rateeval = iconstring.match(regex[6]);
+                        // console.log(rateeval);
+                        // if(rateeval!=null){
+                        //  mySubString = rateeval.substring(
+                        //                 res.indexOf("\= ") + 2,
+                        //                 res.lastIndexOf("\”") + 1
+                        //             );
+                        //              console.log(mySubString);
+                        // }
+                        // }
+
+                        //  if(rateeval!=null){
+                        // for (var tep = 0; tep < iconlist.length; tep++) {
+                        //      if (rateeval != null ) {
+
+                        //          var res = "\"" + iconlist[tep] + "\"".match(regexlist[6]);
+                        //          if (res != null) {
+                        //              if(res.length>1){
+                        //              console.log(mySubString);
+
+                        //              break;
+                        //          }
+                        //         }
+                        //     }
+                        // }
+                        // console.log(mySubString);
+                        // if(mySubString!=null && mySubString.length>1){
+                        //                 generatetable(mySubString);
+
+                        //             }
+
+
+                        // console.log(infodict);
+                        // console.log(infodict);
+                        for (var y = 0; y < 2; y++) {
+
+                            //  if(infodict[y]!="False") {
+
+
+                            if (y == 1) {
+                                //  console.log(infodict[5]+"hil");
+                                if (infodict[5] == "False") {
+                                    var ttd = document.createElement("td");
+                                    //var button = document.createElement("button");
+                                    var iconf = document.createElement("font");
+
+                                    var icon = document.createElement("i");
+                                    icon.className = "fas fa-chevron-circle-down";
+                                    iconf.setAttribute("color", "f1f1f1");
+                                    iconf.setAttribute("style", "font-size:1.5em");
+                                    iconf.appendChild(icon);
+                                    //button.appendChild(iconf);
+                                    ttd.setAttribute("style", "width:6%;text-align:center;");
+                                    ttd.appendChild(iconf);
+                                    ttr.appendChild(ttd);
+                                    var ttd = document.createElement("td");
+                                    var txt = document.createTextNode(infodict[y]);
+                                    ttd.setAttribute("style", "text-align:left;width:37%;");
+                                    ttd.appendChild(txt);
+                                    ttr.appendChild(ttd);
+                                    var txt = document.createTextNode("");
+                                    ttd.appendChild(txt);
+                                } else {
+                                    //    console.log("ji");
+                                    var ttd = document.createElement("td");
+                                    var button = document.createElement("button");
+                                    var center = document.createElement("center");
+                                    button.setAttribute("class", "collapsible");
+                                    var ty = op++;
+                                    button.setAttribute("onclick", "expand(" + ty + ");");
+                                    var iconf = document.createElement("font");
+                                    // iconf.setAttribute("style", "font-size:1.5em");
+
+                                    var icon = document.createElement("i");
+                                    icon.className = "fas fa-chevron-circle-down fa-lg";
+
+                                    iconf.setAttribute("style", "font-size:1.5em");
+                                    iconf.appendChild(icon);
+                                    center.appendChild(icon);
+                                    button.appendChild(center);
+                                    ttd.setAttribute("style", "width:6%;text-align:center");
+                                    ttd.appendChild(button);
+                                    ttr.appendChild(ttd);
+                                    var ttd = document.createElement("td");
+                                    var txt = document.createTextNode(infodict[y]);
+                                    ttd.setAttribute("style", "text-align:left;width:37%;");
+                                    //  button.innerHTML = button.innerHTML + txt.innerHTML;
+
+                                    ttd.appendChild(txt);
+
                                 }
 
                             }
-                        } else if (resdict[ch] == null) {
-                            infodict[ch] = "False";
-                        }
-                    }
-
-                    console.log(infodict);
-                    for (var y = 0; y < 2; y++) {
-
-                        //  if(infodict[y]!="False") {
-
-
-                        if (y == 1) {
-                            //  console.log(infodict[5]+"hil");
-                            if (infodict[5] == "False") {
+                            if (y == 0) {
                                 var ttd = document.createElement("td");
-                                //var button = document.createElement("button");
-                                var iconf = document.createElement("font");
+                                var txt = document.createTextNode(infodict[y]);
+                                ttd.setAttribute("style", "text-align:right;width:20%;");
+                                ttd.appendChild(txt);
+                                var txt = document.createTextNode("");
+                                ttd.appendChild(txt);
 
+                            }
+
+
+                            //  }
+                            ttr.appendChild(ttd);
+                        }
+                        var icons = ["fab fa-leanpub", "far fa-comments", "fas fa-laptop-code"];
+
+                        for (var y = 2; y < 6; y++) {
+                            var ttd = document.createElement("td");
+
+                            //if(infodict[y]!="False") {
+                            if (infodict[y] == "True") {
+                                var iconf = document.createElement("font");
+                                iconf.setAttribute("style", "font-size:1.5em");
                                 var icon = document.createElement("i");
-                                icon.className = "fas fa-chevron-circle-down";
+                                icon.className = icons[y - 2];
+                                iconf.appendChild(icon);
+                            } else {
+                                var iconf = document.createElement("font");
+                                var icon = document.createElement("i");
+                                icon.className = icons[y - 2];
                                 iconf.setAttribute("color", "f1f1f1");
                                 iconf.setAttribute("style", "font-size:1.5em");
                                 iconf.appendChild(icon);
-                                //button.appendChild(iconf);
-                                ttd.setAttribute("style", "width:6%;text-align:center;");
-                                ttd.appendChild(iconf);
-                                ttr.appendChild(ttd);
-                                var ttd = document.createElement("td");
-                                var txt = document.createTextNode(infodict[y]);
-                                ttd.setAttribute("style", "text-align:left;width:37%;");
-                                ttd.appendChild(txt);
-                                ttr.appendChild(ttd);
-                                var txt = document.createTextNode("");
-                                ttd.appendChild(txt);
-                            } else {
-                                console.log("ji");
-                                var ttd = document.createElement("td");
-                                var button = document.createElement("button");
-                                var center = document.createElement("center");
-                                button.setAttribute("class", "collapsible");
-                                var ty = op++;
-                                button.setAttribute("onclick", "expand(" + ty + ");");
-                                var iconf = document.createElement("font");
-                                // iconf.setAttribute("style", "font-size:1.5em");
-                                
-                                var icon = document.createElement("i");
-                                icon.className = "fas fa-chevron-circle-down fa-lg";
 
-                                iconf.setAttribute("style", "font-size:1.5em");
-                                iconf.appendChild(icon);
-                                center.appendChild(icon);
-                                button.appendChild(center);
-                                ttd.setAttribute("style", "width:6%;text-align:center");
-                                ttd.appendChild(button);
-                                ttr.appendChild(ttd);
-                                var ttd = document.createElement("td");
-                                var txt = document.createTextNode(infodict[y]);
-                                ttd.setAttribute("style", "text-align:left;width:37%;");
-                                //  button.innerHTML = button.innerHTML + txt.innerHTML;
-
-                                ttd.appendChild(txt);
-                                
                             }
+                            ttd.setAttribute("style", "width:12%;");
+
+                            ttd.appendChild(iconf);
+                            ttr.appendChild(ttd);
+                            //}
 
                         }
-                        if (y == 0) {
-                            var ttd = document.createElement("td");
-                            var txt = document.createTextNode(infodict[y]);
-                            ttd.setAttribute("style", "text-align:right;width:20%;");
-                            ttd.appendChild(txt);
-                            var txt = document.createTextNode("");
-                            ttd.appendChild(txt);
+                        tablee.appendChild(ttr);
+                        //  console.log(infodict[5]);
+                        if (infodict[5] == "True") {
+                            var t = "<br>";
+                            //   console.log("yo" + i2);
+                            var ttr2 = document.createElement("tr");
+                            var newCell2 = document.createElement("td");
+                            newCell2.setAttribute("colspan", "6");
+                            //var titleMatch = new RegExp("(?<=<hr>)(.*\n?)(?=<hr>)");
+                            var divsec = document.createElement("div");
+                            divsec.setAttribute("style", "background-color: #f1f1f1;width:100%;");
+                            divsec.innerHTML = t;
+                            divsec.setAttribute("class", "child");
 
+                            var sec = sections[i2].cloneNode("True");
+
+                            sec.setAttribute("style", "height:auto;width:auto;text-align:left;margin-left:50px;margin-right:50px;word-wrap:break-word");
+
+ 
+                           if (infodict[6] != "False") {
+                                var tempt = infodict[6];
+
+                                var htmlstring = " <div class = \"rate\">  <h1>section evaluation</h1> <br> <form id = \"" + tempt + "\" onsubmit = saveToFirebase(this.id)>  <textarea rows = \"3\" id = \"comment\" placeholder=\"Please enter any comments\"></textarea><div class = \"rateYo\" id=\"rateYo1" + tempt + "\"></div> <div class = \"rateYo\" id=\"rateYo2" + tempt + "\"></div> <button type = \"submit\" form = \"" + tempt + "\" value = \"Submit\"  style=\"height: 50px;width:100px;\">Submit</button></form></div><br>";
+                                // <fieldset class = \"rating\" id= \"ratingSystem1\"> <legend>How Challenging?</legend><input type = \"radio\" id = \"star5\" name = \"rating1\" value = \"5\"> <label for=\"star5\" title = \"challenging\">That was Challenging!</label> <input type = \"radio\" id = \"star4\" name = \"rating1\" value = \"4\"> <label for=\"  star4\" title = \"tough\">That was Tough!</label> <input type = \"radio\" id = \"star3\" name = \"rating1\" value = \"3\"> <label for=\"star3\" title = \"good\">That was Good!</label><input type = \"radio\" id = \"star2\" name = \"rating1\" value = \"2\"> <label for=\"star2\" title = \"easy\">That was easy!</label> <input type = \"radio\" id =\"star1\" name = \"rating1\" value = \"1\"><label for=\"star1\" title = \"very easy\">That was very easy!</label> </fieldset> <fieldset class = \"rating2\" id= \"ratingSystem2\">  <legend>How time taking?</legend><input type = \"radio\" id = \"star25\" name = \"rating12\" value = \"5\"> <label for=\"star25\" title = \"A week!\">A week</label> <input type = \"radio\" id = \"star24\" name = \"rating12\" value = \"4\"> <label for=\"star24\" title = \"3 days\">3 days</label> <input type = \"radio\" id = \"star23\" name = \"rating12\" value = \"3\"> <label for=\"star23\" title = \"2 days\">2 days</label> <input type = \"radio\" id = \"star22\" name = \"rating12\" value = \"2\"> <label for=\"star22\" title = \"1 day\">A day</label> <input type = \"radio\" id = \"star21\" name = \"rating12\" value = \"1\"><label for=\"star21\" title = \"hours\">Hours!</label></fieldset>
+
+
+                                sec.innerHTML = sec.innerHTML + htmlstring;
+                            }
+                            divsec.appendChild(sec);
+                            //  divsec.appendChild(r);
+                            console.log(divsec);
+                            divsec.innerHTML = divsec.innerHTML + t;
+
+                            newCell2.appendChild(divsec);
+
+                            // console.log("jo");
+                            //  console.log(divsec);
+                            ttr2.appendChild(newCell2);
+                            tablee.appendChild(ttr2);
                         }
 
+                        //commecnted code here
+                        if (infodict[6] != "False") {
+                                var hd = sec.getElementsByTagName("h1")[0].innerHTML;
+                                console.log("this"+hd);
+                                //if (document.getElementById("rateshow1" + hd) != null) {
 
-                        //  }
-                        ttr.appendChild(ttd);
+                                    seteval(hd,infodict[6]);
+                                   // updateeval(hd,infodict[6]);
+                               // } else {
+                                    
+                                //}
+                            }
                     }
-                    var icons = ["fab fa-leanpub", "far fa-comments", "fas fa-laptop-code"];
-                    <!-- "fa fa-glasses", "far fa-comments", "fas fa-brain" "far fa-grimace" "fas fa-hippo" -->
-                    for (var y = 2; y < 6; y++) {
-                        var ttd = document.createElement("td");
-
-                        //if(infodict[y]!="False") {
-                        if (infodict[y] == "True") {
-                            var iconf = document.createElement("font");
-                            iconf.setAttribute("style", "font-size:1.5em");
-                            var icon = document.createElement("i");
-                            icon.className = icons[y - 2];
-                            iconf.appendChild(icon);
-                        } else {
-                            var iconf = document.createElement("font");
-                            var icon = document.createElement("i");
-                            icon.className = icons[y - 2];
-                            iconf.setAttribute("color", "f1f1f1");
-                            iconf.setAttribute("style", "font-size:1.5em");
-                            iconf.appendChild(icon);
-
-                        }
-                        ttd.setAttribute("style", "width:12%;");
-
-                        ttd.appendChild(iconf);
-                        ttr.appendChild(ttd);
-                        //}
-
-                    }
-                    tablee.appendChild(ttr);
-                    console.log(infodict[5]);
-                    if (infodict[5] == "True") {
-                        var t = "<br>";
-                        console.log("yo" + i2);
-                        var ttr2 = document.createElement("tr");
-                        var newCell2 = document.createElement("td");
-                        newCell2.setAttribute("colspan", "6");
-                        //var titleMatch = new RegExp("(?<=<hr>)(.*\n?)(?=<hr>)");
-                        var divsec = document.createElement("div");
-                        divsec.setAttribute("style", "background-color: #f1f1f1;width:100%;");
-                        divsec.innerHTML = t;
-                        divsec.setAttribute("class", "child");
-
-                        var sec = sections[i2].cloneNode("True");
-
-                        sec.setAttribute("style", "width:auto;text-align:left;margin-left:50px;margin-right:50px;word-wrap:break-word");
-
-                        divsec.appendChild(sec);
-                        divsec.innerHTML = divsec.innerHTML + t;
-
-                        newCell2.appendChild(divsec);
-                        console.log("jo");
-                        console.log(divsec);
-                        ttr2.appendChild(newCell2);
-                        tablee.appendChild(ttr2);
-                    }
-                    //commecnted code here
-
                 }
+                
+                            
+                // console.log(tablee.getElementsByClassName(""))
+                generatetable();
+                $(".rateYo").rateYo({
+                    rating: 3.6,
+                    starWidth: "20px",
+                    onSet: function(rating, rateYoInstance) {
+                        this.setAttribute("foo", rating);
+                        //alert("Rating1 is set to: " + rating);
+                    }
+
+                }); 
+               
+               updateeval();
+            //       $("#rateshow1Introduction-to-Data-Science").rateYo({
+            //     rating: 4
+            // });
             }
-        }
+
+            //  
+            
         </script>
         <script>
         function expand(i) {
             var check = document.getElementsByClassName("child");
-            console.log(check[i].innerHTML);
-            console.log(check[i].style.display);
+            //   console.log(check[i].innerHTML);
+            //  console.log(check[i].style.display);
             if (check[i].style.display === "block") {
                 check[i].style.display = "none";
             } else {
@@ -379,23 +796,23 @@ disqus: true
             var t = document.getElementsByTagName('');
             var divC = document.getElementById("divCheckbox").cloneNode(true);
             var alinks = divC.getElementsByTagName("a");
-            
+
             var secs = divC.getElementsByTagName("section");
 
-            for (var j = 0; j < secs.length ; j++) {
+            for (var j = 0; j < secs.length; j++) {
 
                 var hr = document.createElement("hr");
                 secs[j].appendChild(hr);
                 //console.log(secs[j].innerHTML);
                 var h1 = document.createElement("h1");
-            
-                    h1.setAttribute("style", "color:#8c1d40;");
-                    
-                    
-                    var text = document.createTextNode("Section-"+(j+1));
-                    h1.appendChild(text);
-                    h1.appendChild(hr);
-                  //  ps[j].appendChild(h1);
+
+                h1.setAttribute("style", "color:#8c1d40;");
+
+
+                var text = document.createTextNode("Section-" + (j + 1));
+                h1.appendChild(text);
+                h1.appendChild(hr);
+                //  ps[j].appendChild(h1);
 
                 secs[j].insertBefore(h1, secs[j].childNodes[0]);
             }
@@ -423,7 +840,7 @@ disqus: true
 
         if (res != null) {
             for (var i = 0; i < res.length; i++) {
-                console.log(res[i]);
+                //  console.log(res[i]);
                 var mySubString = res[i].substring(
                     res[i].indexOf("\* ") + 2,
                     res[i].lastIndexOf("\<"));
@@ -435,11 +852,11 @@ disqus: true
         //console.log(result); 
 
         res = result.match(/\<p\>\*\*\* (.*)\<\/p\>/ig);
-        console.log("hjo" + res.length);
+        // console.log("hjo" + res.length);
 
         if (res != null) {
             for (var i = 0; i < res.length; i++) {
-                console.log(res[i]);
+                //  console.log(res[i]);
                 var mySubString = res[i].substring(
                     res[i].indexOf("\* ") + 2,
                     res[i].lastIndexOf("\<") - 1
@@ -449,7 +866,7 @@ disqus: true
             }
         }
         result = str;
-        console.log(result);
+        // console.log(result);
 
 
 
@@ -573,3 +990,17 @@ disqus: true
 <!-- </div> -->
 <br>
 <br>
+<script>
+var textarea = document.getElementById("comment");
+//textarea.addEventListener('keydown', autosize);
+
+function autosize() {
+    var el = this;
+    setTimeout(function() {
+        el.style.cssText = 'height:auto; padding:0';
+        // for box-sizing other than "content-box" use:
+        // el.style.cssText = '-moz-box-sizing:content-box';
+        el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    }, 0);
+}
+</script>
